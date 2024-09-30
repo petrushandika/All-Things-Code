@@ -10,4 +10,3 @@ print("value : ", data_string, "- data type: ", type(data_string))
 
 data_bool = bool(data_int) # will false if value int = 0
 print("value : ", data_bool, "- data type: ", type(data_bool))
-
