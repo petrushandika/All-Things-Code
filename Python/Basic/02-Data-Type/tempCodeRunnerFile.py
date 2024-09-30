@@ -8,6 +8,6 @@ print("value : ", data_float, "- data type: ", type(data_float))
 data_string = str(data_int)
 print("value : ", data_string, "- data type: ", type(data_string))
 
-data_bool = bool(data_int) # will false if value int = 0
+data_bool = bool(data_int)
 print("value : ", data_bool, "- data type: ", type(data_bool))
 
