@@ -32,3 +32,9 @@ print(x, "//", y, "=", result)
 # precedence operations
 result = x + y - x * y / x ** y % x // y
 print(result)
+
+# priority precedence operations
+# ()
+# exponent **
+# multiplication
+# addition and substraction
