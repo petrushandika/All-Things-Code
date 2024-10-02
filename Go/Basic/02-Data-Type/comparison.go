@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	// comparison operation
+	// comparison operator
 	var a = "dika"
 	var b = "dika"
 

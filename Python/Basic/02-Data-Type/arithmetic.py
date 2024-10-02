@@ -1,39 +1,39 @@
 x = 20
 y = 10
 
-# addition operations
+# addition operators
 result = x + y
 print(x, "+", y, "=", result)
 
-# substraction operations
+# substraction operators
 result = x - y
 print(x, "-", y, "=", result)
 
-# multiplication operations
+# multiplication operators
 result = x * y
 print(x, "x", y, "=", result)
 
-# division operations
+# division operators
 result = x / y
 print(x, "/", y, "=", result)
 
-# exponent operations
+# exponent operators
 result = x ** y
 print(x, "^", y, "=", result)
 
-# modulus operations
+# modulus operators
 result = x % y
 print(x, "%", y, "=", result)
 
-# floor division operations
+# floor division operators
 result = x // y
 print(x, "//", y, "=", result)
 
-# precedence operations
+# precedence operators
 result = x + y - x * y / x ** y % x // y
 print(result)
 
-# priority precedence operations
+# priority precedence operators
 # ()
 # exponent **
 # multiplication

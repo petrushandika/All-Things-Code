@@ -1,4 +1,4 @@
-# logical operation or boolean
+# logical operator or boolean
 # not, or, and xor
 
 x = False

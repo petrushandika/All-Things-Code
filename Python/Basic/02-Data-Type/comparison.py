@@ -1,4 +1,4 @@
-# comparison operations
+# comparison operators
 x = 4
 y = 2
 

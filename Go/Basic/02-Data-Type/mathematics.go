@@ -3,26 +3,26 @@ package main
 import "fmt"
 
 func main() {
-	// mathematics operation
+	// mathematics operator
 	var a = 20
 	var b = 10
-	// addition operation
+	// addition operator
 	var c = a + b
 	fmt.Println(c)
 
-	// subtraction operation
+	// subtraction operator
 	var d = a - b
 	fmt.Println(d)
 
-	// multiple operation
+	// multiple operator
 	var e = a * b
 	fmt.Println(e)
 
-	// division operation
+	// division operator
 	var f = a / b
 	fmt.Println(f)
 
-	// modulo operation
+	// modulo operator
 	var g = a % b
 	fmt.Println(g)
 

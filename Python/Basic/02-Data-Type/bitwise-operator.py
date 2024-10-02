@@ -1,5 +1,4 @@
-# bitwise operation & binart operation
-
+# bitwise operator & binart operator
 x = 9
 y = 5
 
