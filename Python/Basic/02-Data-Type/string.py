@@ -110,3 +110,29 @@ format_hex = f"hex = {hex(value)}"
 print(format_binary)
 print(format_octal)
 print(format_hex)
+
+# width and multiline
+
+# data
+name_data = "Petrus Handika"
+age_data = 22
+height_data = 172
+size_data = 42
+
+# standard string
+string_data = f"name = {name_data}, age = {age_data}, height = {height_data}, shoes size = {size_data}"
+print(string_data)
+
+# multiline string
+string_data = f"name = {name_data}, \nage = {age_data}, \nheight = {height_data}, \nshoes size = {size_data}"
+print(string_data)
+
+# multiline string (triple quote)
+string_data = f"""
+name        = {name_data}
+age         = {age_data}
+tinggi      = {height_data}
+shoes size  = {size_data}
+"""
+print(string_data)
+
