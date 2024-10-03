@@ -12,6 +12,5 @@ elif operator == "x" or operator == "*" :
 elif operator == "/" :
     result = value_x / value_y
 
-# Convert the result to an integer to remove decimals
 output = int(result)
 print(f"Result: {output}")
