@@ -1,122 +1,112 @@
-# manipulate string
+# string operator
+
+# using double quote ("")
+print("Hello World")
+
+# using single quote ('')
+print('Hello World')
+
+# using backslash
+print("C:\\user\\petrus")
+
+# using tab
+print("Petrus\t\t\tHandika")
+
+# using backspace
+print("Petrus \ Handika")
+
+# using newline
+print("line one.\nline two.")
 
 print("---------------")
 
-# connecting string (concatenate)
-first_name = "petrus"
-last_name = "handika"
-full_name = first_name + last_name
-print("My name is", full_name)
+print("line one.\rline two.")
 
-# calculate length string
-length = len(full_name)
-print("Lenght Full Name", length)
+print("---------------")
 
-# operator for string
-# checking have a component char or string in string
-x = "x"
-status = x in full_name
-print(x + " already in " + full_name + " = " + str(status)) 
+print("line one.\r\nline two.")
 
-X = "X"
-status = X in full_name
-print(X + " already in " + full_name + " = " + str(status)) 
+# string literal or raw
 
-x = "x"
-status = x not in full_name
-print(x + " already in " + full_name + " = " + str(status)) 
+# using raw string
+print(r"C:\new folder")
 
-# repeat string
-print("ya "*10)
-print(10*"ya ")
+# mutiline literal string
+print("""
+      Name : Petrus
+      Class : Natural Science   
+      """)
 
-# indexing
-print("index - 0 : " + full_name[0])
-print("index - 6 : " + full_name[6])
-print("index - (-1) : " + full_name[-1])
-print("index - (-2) : " + full_name[-2])
-print("index - [0:3] : " + full_name[0:3])
-print("index - [3:7] : " + full_name[3:7])
-print("index - [0, 2, 4, 6, 8, 10] : " + full_name[0:11:12])
+# multiline literal string and raw
+print(r"""
+      Name : Petrus Handika
+      Class : Natural Science
+      """)
 
-# smallest item
-print("smallest item : " + min(full_name))
+# format string
 
-# largest item
-print("largest item :", max(full_name))
+# string
+name = "petrus"
+format_str = f"hello {name}"
+print(format_str)
 
-ascii_code = ord(" ")
-print("ASCII code for space is " + str(ascii_code))
+# boolean
+boolean = False
+format_str = f"boolean = {boolean}"
+print(format_str)
 
-data = 117
-print("ASCII code for space is " + chr(data))
+# number
+number = 2005.5
+format_str = f"number = {number}"
+print(format_str)
 
-# operator in method
-data = "Petrus Handika Sinaga ..."
-count = data.count("a")
-print("count a from " + data + " = " + str(count))
+# integers
+number = 15.5
+format_str = f"integers = {number}"
+print(format_str)
 
-# normal case
-regards = "bro"
-print("normal =", regards)
+# thousands
+number = 2000
+format_str = f"ribuan = {number}"
+print(format_str)
 
-# upper case
-regards = regards.upper()
-print("upper =", regards)
+# decimals
+number = 2005.54321
+format_str = f"decimals = {number: .3f}"
+print(format_str)
 
-# lower case
-regards = regards.lower()
-print("lower =", regards)
+# show leading zero
+number = 2005.54321
+format_str = f"decimals = {number: 010.3f}"
+print(format_str)
 
-# check with isX method
+# show + or -
+minus_number = -10
+plus_number = +10.1234
+format_minus = f"minus = {minus_number:+d}"
+format_plus = f"plus = {plus_number:+.2f}"
 
-# check lower case example
-regards = "sist"
-is_lower = regards.islower()
-print(regards + "is lower " + str(is_lower))
+print(format_minus)
+print(format_plus)
 
-is_lower= regards.isupper()
-print(regards + "is upper " + str(is_lower))
+# format percent
+percentage = 0.045
+format_percent = f"percent = {percentage:.2%}"
+print(format_percent)
 
-# isalpha() --> checking all alphabeth
-# isalnum() --> checking alphabeth and number
-# isdecimal() --> checking number only
-# isspace() --> checking space, tab, and newline (/n)
-# istitle() --> all words started from capital case
+# using arithmetic operation in placeholder
+value = 10000
+total = 5
 
-title = "It Is Okay Not To Be Okay"
-check_title = title.istitle()
+format_string = f"total value = Rp. {value*total:,}"
+print(format_string)
 
-print(title + " is title = " + str(check_title))
+# format another value (binary, octal, hexadecimal)
+value = 255
+format_binary = f"binary = {bin(value)}"
+format_octal = f"ocal = {oct(value)}"
+format_hex = f"hex = {hex(value)}"
 
-# checking startswith() & endswith() component
-check_start = "Petrus Handika".startswith("Petrus")
-print("start =", str(check_start))
-
-check_end = "Petrus Handika".endswith("Petrus")
-print("end =", str(check_end))
-
-# merger join() & split() component
-x = ["hello", "everyone", "in", "here"]
-y = ",".join(x)
-print(x)
-print(y)
-
-z = " hm ".join(x)
-print(z)
-
-z = "hellohmeveryoneinhere"
-print(z.split("hm"))
-
-# alocation character with rjust(), ljust(), & center()
-right = "right".rjust(10)
-print(""+right+"")
-
-left = "left".ljust(10)
-print(""+left+"")
-
-center = "center".center(10)
-print(""+center+"")
-
-right = right.strip(":")
-print(""+right+"")
+print(format_binary)
+print(format_octal)
+print(format_hex)
