@@ -108,3 +108,27 @@ Tahap akhir adalah **Model Comparison** atau membandingkan performa beberapa mod
 - **Test Data** adalah data yang sama sekali belum pernah dilihat model selama pelatihan atau penyetelan. Tujuannya adalah untuk mengevaluasi apakah model dapat melakukan prediksi yang akurat pada data baru, yang menunjukkan bahwa model telah mempelajari pola dengan baik dan tidak hanya menghafal data pelatihan (overfitting).
 
   Kita menggunakan metrik seperti akurasi, mean squared error, atau F1 score untuk membandingkan model dan melihat mana yang paling sesuai untuk digunakan dalam aplikasi nyata.
+
+## Overfitting dan Underfitting
+
+**Overfitting** dan **underfitting** adalah dua masalah umum yang terjadi saat melatih model machine learning, yang berkaitan dengan kemampuan model untuk mempelajari pola data dengan baik dan melakukan generalisasi pada data baru.
+
+### Overfitting
+
+**Overfitting** terjadi ketika model terlalu kompleks atau "menghafal" data pelatihan hingga mempelajari detail dan noise yang spesifik untuk data tersebut. Akibatnya, model memiliki performa yang sangat baik pada data pelatihan tetapi gagal membuat prediksi yang akurat pada data baru (data uji).
+
+- **Penyebab**: Model terlalu kompleks, jumlah parameter terlalu banyak, atau pelatihan berlangsung terlalu lama.
+- **Tanda-Tanda**: Akurasi tinggi pada data pelatihan tetapi rendah pada data uji atau validation set.
+- **Cara Mengatasi**: Mengurangi kompleksitas model, menambah data, menggunakan regularisasi, atau menggunakan teknik seperti cross-validation.
+
+**Contoh**: Misalkan kita melatih model untuk mengenali pola dalam kumpulan data spesifik, namun model belajar pola yang sangat detail seperti noise atau variasi kecil yang tidak berlaku untuk data baru. Akibatnya, model hanya bekerja baik pada data latih tetapi buruk pada data baru.
+
+### Underfitting
+
+**Underfitting** terjadi ketika model terlalu sederhana sehingga gagal memahami pola yang ada di data pelatihan. Model yang underfitting memiliki performa buruk baik pada data pelatihan maupun data uji karena tidak mampu menangkap hubungan yang relevan dalam data.
+
+- **Penyebab**: Model terlalu sederhana, terlalu sedikit fitur yang digunakan, atau waktu pelatihan tidak cukup.
+- **Tanda-Tanda**: Akurasi rendah pada data pelatihan dan data uji.
+- **Cara Mengatasi**: Meningkatkan kompleksitas model, menambah lebih banyak fitur, atau melatih model lebih lama.
+
+**Contoh**: Jika kita mencoba memprediksi harga rumah hanya berdasarkan satu fitur seperti luas bangunan, tetapi mengabaikan faktor penting lain seperti lokasi atau kondisi, maka model mungkin terlalu sederhana dan tidak bisa memprediksi harga dengan akurat.

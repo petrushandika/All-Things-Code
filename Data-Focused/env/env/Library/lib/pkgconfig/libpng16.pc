@@ -1,0 +1,12 @@
+prefix=C:/Exercise/All-Things-Code/Data-Focused/env/env/Library
+exec_prefix=C:/Exercise/All-Things-Code/Data-Focused/env/env/Library
+libdir=C:/Exercise/All-Things-Code/Data-Focused/env/env/Library/lib
+includedir=C:/Exercise/All-Things-Code/Data-Focused/env/env/Library/include/libpng16
+
+Name: libpng
+Description: Loads and saves PNG files
+Version: 1.6.39
+Requires.private: zlib
+Libs: -L${libdir} -lpng16
+Libs.private: -lz
+Cflags: -I${includedir}
