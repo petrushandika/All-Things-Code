@@ -77,3 +77,31 @@ $petrus = array(
     );
 var_dump($petrus["address"]["country"]);
 ?>
+
+<!-- Operator Array -->
+<?php
+$first = [
+    "first_name" => "Petrus"
+];
+
+$second = [
+    "last_name" => "Handika"
+];
+
+$full = $first + $second;
+var_dump($full);
+
+$a = [
+    "first_name" => "Petrus",
+    "last_name" => "Handika"
+];
+
+$b = [
+    "last_name" => "Handika",
+    "first_name" => "Petrus"
+];
+
+var_dump($a == $b);
+var_dump($a === $b);
+?>
+
