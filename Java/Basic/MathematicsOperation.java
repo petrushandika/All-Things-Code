@@ -79,7 +79,5 @@ public class MathematicsOperation {
         double sudutRadian = Math.PI / 4;
         double nilaiSinus = Math.sin(sudutRadian);
         System.out.println("Sinus dari sudut" + Math.toDegrees(sudutRadian) + " derajat adalah " + nilaiSinus);
-
-
     }
 }
