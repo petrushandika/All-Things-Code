@@ -28,7 +28,5 @@ public class DataType {
         // double lebih dari float
         float floatData = 12.45F;
         double doubleData = 12.234;
-
-
     }
 }
