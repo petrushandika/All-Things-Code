@@ -1,6 +1,6 @@
 package Basic; // directory folder
 
-public class introduction {
+public class Introduction {
     // Public static void main (spvm) -> metode utama yang dieksekusi saat program dijalankan dan tempat program Java memulai eksekusinya
     public static void main(String[] args) {
         // System out println (sout) -> mencetak teks dan mengganti baris baru setelahnya
