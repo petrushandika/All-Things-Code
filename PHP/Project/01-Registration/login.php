@@ -15,10 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result) {
         $num = mysqli_num_rows($result);
         if ($num > 0) {
-            $login = 1;
+            $_SESSION['username'] = $username;
             $_SESSION["login_status"] = "success";
-            header("Location: home.php"); 
-            exit;
+            
+            header("Location: home.php");
+            exit();
         } else {
             $invalid = 1;
         }
@@ -62,7 +63,7 @@ if (isset($_SESSION["login_status"]) && $_SESSION["login_status"] === "success")
         <?php endif; ?>
         
         <!-- Login Form -->
-        <form action="home.php" method="post">
+        <form action="login.php" method="post">
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
                 <input type="text" class="form-control" id="username" name="username" placeholder="Enter Your Username" required>
