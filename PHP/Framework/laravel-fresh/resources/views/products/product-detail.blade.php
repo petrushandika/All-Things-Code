@@ -37,9 +37,9 @@
 </head>
 <body>
     <div class="detail-container">
-        <img src="https://atmos.co.id/cdn/shop/files/AURORA_CT8012-104_PHSLH000-2000_1360x.png?v=1733818680" alt="Product Image">
-        <h2>Product {{ $id }}</h2>
-        <p>This is the detail page for Product {{ $id }}. You can add more information here.</p>
+        <img src="{{ $product['image'] }}" alt="Product Image">
+        <h2>{{ $product['name'] }}</h2>
+        <p>{{ $product['description'] }}</p>
         <a href="{{ url('/product') }}">Back to Product List</a>
     </div>
 </body>
