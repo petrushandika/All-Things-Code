@@ -38,6 +38,9 @@
 <body>
     <div class="detail-container">
         <img src="{{ $product['image'] }}" alt="Product Image">
+        <div style="font-weight:bold; color:#007bff; margin-bottom:8px; font-size:1.1em;">
+            {{ formatCurrency($product['price']) }}
+        </div>
         <h2>{{ $product['name'] }}</h2>
         <p>{{ $product['description'] }}</p>
         <a href="{{ url('/product') }}">Back to Product List</a>

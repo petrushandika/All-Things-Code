@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Mail\SendWelcomeEmail;
+use Illuminate\Support\Facades\Mail;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,3 +26,7 @@ Route::get('/promo', function () {
 });
 
 Route::get('/product/detail/{id}', [ProductController::class, 'detail']);
+
+Route::get('/send', function () {
+    Mail::to('petrushandikasinaga@gmail.com')->send(new SendWelcomeEmail());
+});
