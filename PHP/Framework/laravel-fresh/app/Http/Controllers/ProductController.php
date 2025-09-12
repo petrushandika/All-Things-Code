@@ -3,99 +3,72 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $products = [
-            [
-                'image' => 'https://atmos.co.id/cdn/shop/files/AURORA_CT8012-104_PHSLH000-2000_1360x.png?v=1733818680',
-                'price' => 499000,
-                'name' => 'Aurora Alpha',
-                'description' => 'Sepatu running ringan dan nyaman untuk aktivitas harian.',
-            ],
-            [
-                'image' => 'https://atmos.co.id/cdn/shop/files/AURORA_CT8012-104_PHSLH000-2000_1360x.png?v=1733818680',
-                'price' => 529000,
-                'name' => 'Aurora Beta',
-                'description' => 'Desain stylish cocok untuk olahraga dan jalan-jalan.',
-            ],
-            [
-                'image' => 'https://atmos.co.id/cdn/shop/files/AURORA_CT8012-104_PHSLH000-2000_1360x.png?v=1733818680',
-                'price' => 479000,
-                'name' => 'Aurora Gamma',
-                'description' => 'Material breathable menjaga kaki tetap sejuk.',
-            ],
-            [
-                'image' => 'https://atmos.co.id/cdn/shop/files/AURORA_CT8012-104_PHSLH000-2000_1360x.png?v=1733818680',
-                'price' => 559000,
-                'name' => 'Aurora Delta',
-                'description' => 'Sol empuk dan anti slip untuk kenyamanan ekstra.',
-            ],
-            [
-                'image' => 'https://atmos.co.id/cdn/shop/files/AURORA_CT8012-104_PHSLH000-2000_1360x.png?v=1733818680',
-                'price' => 489000,
-                'name' => 'Aurora Epsilon',
-                'description' => 'Pilihan warna menarik untuk gaya sporty Anda.',
-            ],
-            [
-                'image' => 'https://atmos.co.id/cdn/shop/files/AURORA_CT8012-104_PHSLH000-2000_1360x.png?v=1733818680',
-                'price' => 539000,
-                'name' => 'Aurora Zeta',
-                'description' => 'Ringan, kuat, dan tahan lama untuk segala aktivitas.',
-            ],
-        ];
-        return view('products.product', [
-            'products' => $products,
+        return response()->json(Product::all());
+    }
+
+    public function show($id)
+    {
+        $product = Product::find($id);
+        if (!$product) {
+            return response()->json(['message' => 'Product not found'], 404);
+        }
+        return response()->json($product);
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name'        => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'price'       => 'required|numeric',
+            'image'       => 'nullable|url',
+        ]);
+
+        $product = Product::create($validated);
+
+        return response()->json([
+            'message' => 'Product created successfully',
+            'data'    => $product
+        ], 201);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $product = Product::find($id);
+        if (!$product) {
+            return response()->json(['message' => 'Product not found'], 404);
+        }
+
+        $validated = $request->validate([
+            'name'        => 'sometimes|required|string|max:255',
+            'description' => 'nullable|string',
+            'price'       => 'sometimes|required|numeric',
+            'image'       => 'nullable|url',
+        ]);
+
+        $product->update($validated);
+
+        return response()->json([
+            'message' => 'Product updated successfully',
+            'data'    => $product
         ]);
     }
 
-    public function detail($id)
+    public function destroy($id)
     {
-        $products = [
-            [
-                'image' => 'https://atmos.co.id/cdn/shop/files/AURORA_CT8012-104_PHSLH000-2000_1360x.png?v=1733818680',
-                'price' => 499000,
-                'name' => 'Aurora Alpha',
-                'description' => 'Sepatu running ringan dan nyaman untuk aktivitas harian.',
-            ],
-            [
-                'image' => 'https://atmos.co.id/cdn/shop/files/AURORA_CT8012-104_PHSLH000-2000_1360x.png?v=1733818680',
-                'price' => 529000,
-                'name' => 'Aurora Beta',
-                'description' => 'Desain stylish cocok untuk olahraga dan jalan-jalan.',
-            ],
-            [
-                'image' => 'https://atmos.co.id/cdn/shop/files/AURORA_CT8012-104_PHSLH000-2000_1360x.png?v=1733818680',
-                'price' => 479000,
-                'name' => 'Aurora Gamma',
-                'description' => 'Material breathable menjaga kaki tetap sejuk.',
-            ],
-            [
-                'image' => 'https://atmos.co.id/cdn/shop/files/AURORA_CT8012-104_PHSLH000-2000_1360x.png?v=1733818680',
-                'price' => 559000,
-                'name' => 'Aurora Delta',
-                'description' => 'Sol empuk dan anti slip untuk kenyamanan ekstra.',
-            ],
-            [
-                'image' => 'https://atmos.co.id/cdn/shop/files/AURORA_CT8012-104_PHSLH000-2000_1360x.png?v=1733818680',
-                'price' => 489000,
-                'name' => 'Aurora Epsilon',
-                'description' => 'Pilihan warna menarik untuk gaya sporty Anda.',
-            ],
-            [
-                'image' => 'https://atmos.co.id/cdn/shop/files/AURORA_CT8012-104_PHSLH000-2000_1360x.png?v=1733818680',
-                'price' => 539000,
-                'name' => 'Aurora Zeta',
-                'description' => 'Ringan, kuat, dan tahan lama untuk segala aktivitas.',
-            ],
-        ];
-        $index = $id - 1;
-        if (!isset($products[$index])) {
-            abort(404);
+        $product = Product::find($id);
+        if (!$product) {
+            return response()->json(['message' => 'Product not found'], 404);
         }
-        $product = $products[$index];
-        return view('products.product-detail', ['product' => $product, 'id' => $id]);
+
+        $product->delete();
+
+        return response()->json(['message' => 'Product deleted successfully']);
     }
 }
