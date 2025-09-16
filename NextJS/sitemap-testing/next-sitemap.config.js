@@ -16,9 +16,27 @@ module.exports = {
   additionalPaths: async (config) => {
     return [
       {
+        loc: '/',
+        changefreq: 'daily',
+        priority: 1.0, // Homepage gets highest priority
+        lastmod: new Date().toISOString()
+      },
+      {
+        loc: '/products',
+        changefreq: 'weekly',
+        priority: 0.9, // Products page is important for business
+        lastmod: new Date().toISOString()
+      },
+      {
         loc: '/blog',
         changefreq: 'weekly',
-        priority: 0.8,
+        priority: 0.8, // Blog gets high priority for SEO
+        lastmod: new Date().toISOString()
+      },
+      {
+        loc: '/contact',
+        changefreq: 'monthly',
+        priority: 0.7,
         lastmod: new Date().toISOString()
       },
       {
@@ -36,19 +54,30 @@ module.exports = {
       return null
     }
 
-    // Custom priority based on path
+    // Custom priority based on path hierarchy
     let priority = 0.7
+    let changefreq = 'weekly'
+    
     if (path === '/') {
       priority = 1.0 // Homepage gets highest priority
-    } else if (path.startsWith('/blog/')) {
-      priority = 0.8 // Blog posts get high priority
+      changefreq = 'daily'
+    } else if (path.startsWith('/products')) {
+      priority = 0.9 // Products page is crucial for business
+      changefreq = 'weekly'
+    } else if (path.startsWith('/blog')) {
+      priority = 0.8 // Blog posts get high priority for SEO
+      changefreq = 'weekly'
+    } else if (path.startsWith('/contact')) {
+      priority = 0.7
+      changefreq = 'monthly'
     } else if (path.startsWith('/about')) {
       priority = 0.6
+      changefreq = 'monthly'
     }
 
     return {
       loc: path,
-      changefreq: config.changefreq,
+      changefreq: changefreq,
       priority: priority,
       lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
       alternateRefs: config.alternateRefs ?? [],

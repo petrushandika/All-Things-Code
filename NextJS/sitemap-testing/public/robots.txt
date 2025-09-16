@@ -21,8 +21,8 @@ Disallow: /private
 Disallow: /secret
 
 # Host
-Host: https://sitemap-testing.vercel.app
+Host: https://all-things-code.vercel.app/
 
 # Sitemaps
-Sitemap: https://sitemap-testing.vercel.app/sitemap.xml
+Sitemap: https://all-things-code.vercel.app/sitemap.xml
 Sitemap: https://sitemap-testing.vercel.app/server-sitemap.xml
