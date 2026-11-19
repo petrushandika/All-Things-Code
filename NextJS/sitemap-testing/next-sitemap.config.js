@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: process.env.SITE_URL || 'https://sitemap-testing.vercel.app',
-  generateRobotsTxt: true, // Generate robots.txt file
+  generateRobotsTxt: false, // robots.txt comes from src/app/robots.ts
   sitemapSize: 7000, // Split large sitemaps into multiple files
   changefreq: 'daily',
   priority: 0.7,
