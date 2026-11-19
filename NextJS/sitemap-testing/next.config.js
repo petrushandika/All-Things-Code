@@ -4,6 +4,11 @@ const nextConfig = {
   async headers() {
     return [
       {
+        // Test deployment: keep every route out of search indexes.
+        source: '/:path*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+      {
         // Apply headers to dynamic sitemap
         source: '/sitemap.xml',
         headers: [
